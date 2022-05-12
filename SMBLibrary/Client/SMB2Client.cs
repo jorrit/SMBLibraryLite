@@ -154,7 +154,8 @@ namespace SMBLibrary.Client
         {
             if (m_isConnected)
             {
-                m_clientSocket.Disconnect(false);
+                m_clientSocket.Shutdown(SocketShutdown.Both);
+                m_clientSocket.Close();
                 m_isConnected = false;
             }
         }
